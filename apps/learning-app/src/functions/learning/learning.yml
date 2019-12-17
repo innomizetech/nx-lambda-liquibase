@@ -1,0 +1,6 @@
+handler: apps/learning-app/src/functions/learning/index.handler
+description: A function for Learning Application
+events:
+  - http:
+      path: /learning
+      method: get

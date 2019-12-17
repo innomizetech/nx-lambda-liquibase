@@ -1,0 +1,22 @@
+service: learning-app
+frameworkVersion: '>=1.1.0 <2.0.0'
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: us-east-1
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js' # Name of webpack configuration file
+    includeModules: true
+    packager: 'npm' # Reserved for future use. Any other values will not work right now.
+    packExternalModulesMaxBuffer: 204800 # Size of stdio buffers for spawned child processes
+
+functions:
+  learning: ${file(apps/learning-app/src/functions/learning/learning.yml)}
+
+plugins:
+  - serverless-webpack
+  - serverless-offline

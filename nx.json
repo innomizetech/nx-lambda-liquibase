@@ -1,0 +1,24 @@
+{
+  "npmScope": "nx-lambda-liquibase",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "hello-app": {
+      "tags": []
+    },
+    "common-util": {
+      "tags": []
+    },
+    "greeting-app": {
+      "tags": []
+    },
+    "learning-app": {
+      "tags": []
+    }
+  }
+}

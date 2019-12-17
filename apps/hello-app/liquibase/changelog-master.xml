@@ -1,0 +1,29 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="hiepdinh"
+    id="1.0.0">
+    <comment>Initialize the Liquibase setup for hello app</comment>
+  </changeSet>
+
+  <changeSet id="1.0.1" author="hiepdinh">
+    <comment>Create users table</comment>
+    <createTable tableName="users">
+      <column autoIncrement="true" name="id" type="INT">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="name" type="VARCHAR(36)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="1.0.2" author="hiepdinh" runOnChange="true">
+    <comment>Load test data for users table</comment>
+    <loadUpdateData primaryKey="id" encoding="UTF-8"
+          file="users.csv"
+          quotchar="&quot;" separator=","
+          tableName="users">
+      <column header="name" name="name" type="STRING"/>
+    </loadUpdateData>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "projects": {
+    "hello-app": {
+      "root": "apps/hello-app",
+      "sourceRoot": "apps/hello-app/src",
+      "projectType": "application",
+      "prefix": "hello-app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/hello-app",
+            "main": "apps/hello-app/src/main.ts",
+            "tsConfig": "apps/hello-app/tsconfig.app.json",
+            "assets": [
+              "apps/hello-app/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/hello-app/src/environments/environment.ts",
+                  "with": "apps/hello-app/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "hello-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/hello-app/tsconfig.app.json",
+              "apps/hello-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/hello-app/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/hello-app/jest.config.js",
+            "tsConfig": "apps/hello-app/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "common-util": {
+      "root": "libs/common-util",
+      "sourceRoot": "libs/common-util/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-util/tsconfig.lib.json",
+              "libs/common-util/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-util/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-util/jest.config.js",
+            "tsConfig": "libs/common-util/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "greeting-app": {
+      "root": "apps/greeting-app",
+      "sourceRoot": "apps/greeting-app/src",
+      "projectType": "application",
+      "prefix": "greeting-app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/greeting-app",
+            "main": "apps/greeting-app/src/main.ts",
+            "tsConfig": "apps/greeting-app/tsconfig.app.json",
+            "assets": [
+              "apps/greeting-app/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/greeting-app/src/environments/environment.ts",
+                  "with": "apps/greeting-app/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "greeting-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/greeting-app/tsconfig.app.json",
+              "apps/greeting-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/greeting-app/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/greeting-app/jest.config.js",
+            "tsConfig": "apps/greeting-app/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "learning-app": {
+      "root": "apps/learning-app",
+      "sourceRoot": "apps/learning-app/src",
+      "projectType": "application",
+      "prefix": "learning-app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/learning-app",
+            "main": "apps/learning-app/src/main.ts",
+            "tsConfig": "apps/learning-app/tsconfig.app.json",
+            "assets": [
+              "apps/learning-app/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/learning-app/src/environments/environment.ts",
+                  "with": "apps/learning-app/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "learning-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/learning-app/tsconfig.app.json",
+              "apps/learning-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/learning-app/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/learning-app/jest.config.js",
+            "tsConfig": "apps/learning-app/tsconfig.spec.json"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/node"
+  },
+  "defaultProject": "hello-app"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "nx-lambda-liquibase-hello-db",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dropAll": "java -jar ../../../tools/libs/liquibase-core-3.5.4.jar dropAll",
+    "update": "java -jar ../../../tools/libs/liquibase-core-3.5.4.jar update",
+    "init": "npm run dropAll && npm run update"
+  }
+}

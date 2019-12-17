@@ -1,0 +1,6 @@
+handler: apps/greeting-app/src/functions/greeting/index.handler
+description: A function for Greeting Application
+events:
+  - http:
+      path: /greeting
+      method: get

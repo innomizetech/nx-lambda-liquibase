@@ -1,0 +1,25 @@
+service: hello-app
+frameworkVersion: '>=1.1.0 <2.0.0'
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: us-east-1
+
+custom:
+  scriptHooks:
+    before:package:cleanup: cd apps/hello-app/liquibase && npm run init
+  webpack:
+    webpackConfig: 'webpack.config.js' # Name of webpack configuration file
+    includeModules: true
+    packager: 'npm' # Reserved for future use. Any other values will not work right now.
+    packExternalModulesMaxBuffer: 204800 # Size of stdio buffers for spawned child processes
+
+functions:
+  hello: ${file(apps/hello-app/src/functions/hello/hello.yml)}
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-scriptable-plugin

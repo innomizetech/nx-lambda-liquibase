@@ -1,0 +1,6 @@
+handler: apps/hello-app/src/functions/hello/index.handler
+description: A function for Hello Application
+events:
+  - http:
+      path: /hello
+      method: get
